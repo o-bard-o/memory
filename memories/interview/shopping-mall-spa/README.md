@@ -57,7 +57,7 @@
     ];
     ```
 
-`/web/cart`
+### `/web/cart`
 
 ![](https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/dbfa62cc-40cb-4305-80e4-ce72ee7e09b9/Untitled%202.png)
 
