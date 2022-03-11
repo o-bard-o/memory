@@ -1,6 +1,6 @@
 import { E } from "../core/react.js"
 
-export default function ProductDetailPage() {
+const ProductDetailPage = () => {
   const { pathname } = location;
   const [, , productId] = pathname.split('/');
   return ( 
@@ -42,3 +42,5 @@ export default function ProductDetailPage() {
     )
   )
 }
+
+export default ProductDetailPage;

@@ -1,6 +1,6 @@
 import { E } from "../core/react.js"
 
-export default function ProductDetailPage() {
+const CartPage = () => {
   return ( 
     E("div", [{k:"class", v:"CartPage"}], 
       E("h1", null, "장바구니"),
@@ -27,3 +27,5 @@ export default function ProductDetailPage() {
     )
   )
 }
+
+export default CartPage;
