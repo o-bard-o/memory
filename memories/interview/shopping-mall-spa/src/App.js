@@ -8,10 +8,10 @@ const App = () => {
   const { pathname } = location;
 
   switch(pathname) {
-    case "/web/": {
+    case "/": {
       return E(ProductListPage);
     }
-    case "/web/cart": {
+    case "/cart": {
       return E(CartPage);
     }
     default: {

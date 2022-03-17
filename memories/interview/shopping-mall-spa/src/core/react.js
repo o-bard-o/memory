@@ -1,9 +1,17 @@
 const hooks = [];
 let currentComponent = -1;
+let root = null;
 
 export const render = (vdom, container) => {
-  container.appendChild(renderDOM(vdom));
+  root = container;
+  root.appendChild(renderDOM(vdom));
 };
+
+const _render = () => {
+  console.log("Rendering...")
+  const clone = root.cloneNode(true);
+  root.replaceWith(clone);
+}
 
 export const useState = (initValue) => {
   const position = currentComponent;
@@ -16,6 +24,7 @@ export const useState = (initValue) => {
     hooks[position],
     (nextValue) => {
       hooks[position] = nextValue;
+      _render();
     }
   ]
 }
@@ -36,13 +45,14 @@ const renderDOM = (vdom) => {
   if (vdom === undefined) return;
 
   const $el = document.createElement(vdom.tagName);
-  if(vdom && vdom.props !== null) {
-    vdom.props.forEach((i) => {
-      $el.setAttribute(i.k, i.v);
-    })
-  }
-  vdom.children.map(renderDOM).forEach((node) => {
+  
+  vdom?.props?.forEach((i) => {
+    $el.setAttribute(i.k, i.v);
+  })
+  
+  vdom?.children?.map(renderDOM).forEach((node) => {
     $el.appendChild(node);
   });
+
   return $el;    
 };
